@@ -1,0 +1,431 @@
+/* =========================
+   ADMIN GENERAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f5eee8;
+  color: #3e2723;
+  font-family: Arial, sans-serif;
+}
+
+.admin-page {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px;
+  color: #3e2723;
+  overflow-wrap: anywhere;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.admin-header h1,
+.admin-card h1,
+.admin-card h2,
+.admin-page h2 {
+  color: #5d4037;
+}
+
+.admin-card {
+  min-width: 0;
+  padding: 22px;
+  background: #fffaf7;
+  border: 1px solid #d7ccc8;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(93, 64, 55, 0.12);
+}
+
+.admin-login {
+  width: 100%;
+  max-width: 430px;
+  margin: 70px auto;
+}
+
+/* =========================
+   INPUTS AND FORMS
+========================= */
+
+.admin-login input,
+.product-form input,
+.product-form textarea,
+.order-card select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  margin: 7px 0 14px;
+  border: 1px solid #bcaaa4;
+  border-radius: 7px;
+  font: inherit;
+  font-size: 16px;
+}
+
+.product-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+input,
+select,
+textarea,
+button {
+  max-width: 100%;
+}
+
+.check-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 4px 0 15px;
+}
+
+.check-row label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.check-row input {
+  width: auto;
+  margin: 0;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.admin-card button,
+.admin-toolbar button,
+.admin-actions button {
+  min-height: 42px;
+  padding: 11px 15px;
+  margin: 4px;
+  border: 0;
+  border-radius: 7px;
+  background: #6b3e26;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  touch-action: manipulation;
+}
+
+.admin-card button:hover,
+.admin-toolbar button:hover,
+.admin-actions button:hover {
+  background: #4a2818;
+}
+
+.secondary-button {
+  background: #8d6e63 !important;
+}
+
+.danger-button {
+  background: #8b2e2e !important;
+}
+
+.admin-message {
+  padding: 12px 14px;
+  background: #fff3e9;
+  border: 1px solid #e6af8f;
+  border-radius: 8px;
+}
+
+/* =========================
+   TABS AND TOOLBAR
+========================= */
+
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.admin-tabs button {
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 7px;
+  background: #8d6e63;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.admin-tabs button.active {
+  background: #5d4037;
+}
+
+.admin-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.admin-product-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+.admin-product {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 14px;
+  background: #fffaf7;
+  border: 1px solid #d7ccc8;
+  border-radius: 12px;
+}
+
+.admin-product img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.admin-product h3 {
+  margin: 0 0 6px;
+  color: #5d4037;
+}
+
+.admin-product p {
+  margin: 5px 0;
+}
+
+.admin-product > div {
+  min-width: 0;
+}
+
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.stock {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.stock.good {
+  color: #28733b;
+}
+
+.stock.bad {
+  color: #a52828;
+}
+
+/* =========================
+   ORDERS
+========================= */
+
+.order-card {
+  min-width: 0;
+  margin-bottom: 12px;
+}
+
+.order-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.order-top select {
+  width: 100%;
+  max-width: 250px;
+}
+
+.order-card pre {
+  max-width: 100%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  overflow-x: auto;
+}
+
+.order-card p {
+  overflow-wrap: anywhere;
+}
+
+/* =========================
+   TABLETS
+========================= */
+
+@media (max-width: 900px) {
+  .admin-page {
+    padding: 20px;
+  }
+
+  .admin-product {
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .admin-product img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .admin-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+}
+
+/* =========================
+   MOBILE PHONES
+========================= */
+
+@media (max-width: 600px) {
+  .admin-page {
+    padding: 12px;
+  }
+
+  .admin-header {
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .admin-header h1 {
+    font-size: 25px;
+  }
+
+  .admin-card {
+    padding: 15px;
+    border-radius: 11px;
+  }
+
+  .admin-login {
+    margin: 35px auto;
+  }
+
+  .admin-login h1 {
+    font-size: 25px;
+  }
+
+  .admin-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .admin-tabs button {
+    width: 100%;
+    margin: 0;
+    padding: 11px 7px;
+    font-size: 13px;
+  }
+
+  .admin-toolbar {
+    align-items: stretch;
+  }
+
+  .admin-toolbar button {
+    margin: 3px 0;
+  }
+
+  .admin-product {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .admin-product img {
+    width: 58px;
+    height: 58px;
+  }
+
+  .admin-product h3 {
+    font-size: 16px;
+  }
+
+  .admin-product p {
+    font-size: 14px;
+  }
+
+  .admin-actions {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .admin-actions button {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 10px 6px;
+    font-size: 13px;
+  }
+
+  .order-top {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .order-top select {
+    max-width: none;
+  }
+
+  .order-card button {
+    min-height: 44px;
+  }
+
+  .check-row {
+    gap: 12px;
+  }
+}
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-width: 360px) {
+  .admin-page {
+    padding: 8px;
+  }
+
+  .admin-card {
+    padding: 11px;
+  }
+
+  .admin-tabs button {
+    font-size: 12px;
+  }
+
+  .admin-product {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+
+  .admin-product img {
+    width: 48px;
+    height: 48px;
+  }
+}

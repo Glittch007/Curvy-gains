@@ -6,11 +6,34 @@
   box-sizing: border-box;
 }
 
+html {
+  width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
+  width: 100%;
+  min-width: 0;
   font-family: Arial, sans-serif;
   background: #f5eee8;
   color: #3e2723;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  touch-action: manipulation;
 }
 
 /* =========================
@@ -25,26 +48,28 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 12px;
 }
 
 header h1 {
   margin: 0;
   font-size: 26px;
+  overflow-wrap: anywhere;
 }
 
 nav {
   display: flex;
+  align-items: center;
   gap: 10px;
   flex-wrap: wrap;
 }
-
-/* TOP RIGHT HOME / PRODUCTS / CART BUTTONS */
 
 nav button {
   background: #6b3e26;
   color: white;
   border: none;
   padding: 10px 18px;
+  min-height: 42px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 15px;
@@ -70,15 +95,17 @@ nav button:hover {
   color: #5d4037;
   font-size: 38px;
   margin-bottom: 15px;
+  overflow-wrap: anywhere;
 }
 
 .home p {
   color: #6d4c41;
   font-size: 18px;
+  line-height: 1.6;
 }
 
 /* =========================
-   PRODUCTS
+   PRODUCTS PAGE
 ========================= */
 
 .products-page {
@@ -93,13 +120,16 @@ nav button:hover {
   margin-bottom: 25px;
 }
 
-.products-grid {
+.products-grid,
+.products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: 25px;
+  width: 100%;
 }
 
 .product-card {
+  min-width: 0;
   background: #fffaf7;
   border: 1px solid #d7ccc8;
   border-radius: 12px;
@@ -109,22 +139,28 @@ nav button:hover {
 }
 
 .product-card img {
+  display: block;
+  width: 100%;
   max-width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px;
 }
 
 .product-card h3 {
   color: #5d4037;
   margin: 12px 0 8px;
+  overflow-wrap: anywhere;
 }
 
 .product-card p {
   color: #6d4c41;
+  line-height: 1.5;
 }
 
 .product-card button {
+  max-width: 100%;
+  min-height: 44px;
   background: #6d4c41;
   color: white;
   border: none;
@@ -151,10 +187,11 @@ nav button:hover {
 }
 
 .category-buttons button {
+  min-height: 40px;
   background: #8d6e63;
   color: white;
   border: none;
-  padding: 8px 14px;
+  padding: 9px 14px;
   border-radius: 6px;
   cursor: pointer;
 }
@@ -169,23 +206,13 @@ nav button:hover {
 
 .search-input {
   display: block;
-  width: 90%;
+  width: 100%;
   max-width: 500px;
   margin: 0 auto 20px;
   padding: 12px;
   border: 1px solid #bcaaa4;
   border-radius: 7px;
   font-size: 16px;
-}
-
-/* =========================
-   PRODUCTS CONTAINER
-========================= */
-
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
 }
 
 /* =========================
@@ -205,6 +232,7 @@ nav button:hover {
 }
 
 .cart {
+  min-width: 0;
   background: #fffaf7;
   border: 1px solid #d7ccc8;
   border-radius: 12px;
@@ -218,6 +246,7 @@ nav button:hover {
 }
 
 .cart-item {
+  min-width: 0;
   background: #fffaf7;
   border: 1px solid #d7ccc8;
   border-radius: 10px;
@@ -230,18 +259,23 @@ nav button:hover {
 }
 
 .cart-item img {
+  width: 90px;
+  max-width: 100%;
+  object-fit: contain;
   border-radius: 8px;
 }
 
 .cart-item h3 {
   color: #5d4037;
+  overflow-wrap: anywhere;
 }
 
 .cart-item button {
+  min-height: 40px;
   background: #795548;
   color: white;
   border: none;
-  padding: 7px 12px;
+  padding: 8px 12px;
   margin: 3px;
   border-radius: 5px;
   cursor: pointer;
@@ -258,7 +292,9 @@ nav button:hover {
 .quantity-controls {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .quantity-controls span {
@@ -270,6 +306,7 @@ nav button:hover {
 ========================= */
 
 .checkout-button {
+  min-height: 44px;
   background: #6b3e26;
   color: white;
   border: none;
@@ -288,6 +325,7 @@ nav button:hover {
 ========================= */
 
 .cart-page > button {
+  min-height: 44px;
   background: #6b3e26;
   color: white;
   border: none;
@@ -306,11 +344,12 @@ nav button:hover {
 ========================= */
 
 .checkout {
+  width: 100%;
+  max-width: 600px;
   background: #e6af8f;
   border: 1px solid #d7ccc8;
   border-radius: 12px;
   padding: 25px;
-  max-width: 600px;
   margin: 30px auto;
   box-shadow: 0 4px 12px rgba(93, 64, 55, 0.15);
 }
@@ -321,21 +360,25 @@ nav button:hover {
 
 .checkout input,
 .checkout select {
+  display: block;
   width: 100%;
+  min-width: 0;
   padding: 12px;
   margin: 8px 0 15px;
   border: 1px solid #bcaaa4;
   border-radius: 6px;
+  font-size: 16px;
 }
 
 .checkout button {
+  min-height: 44px;
   background: #6d4c41;
   color: white;
   border: none;
   padding: 12px 20px;
   border-radius: 7px;
   cursor: pointer;
-  margin-right: 8px;
+  margin: 4px 8px 4px 0;
 }
 
 .checkout button:hover {
@@ -361,44 +404,146 @@ footer {
   text-align: center;
   padding: 20px;
   margin-top: 30px;
+  overflow-wrap: anywhere;
 }
 
 /* =========================
-   MOBILE
+   TABLETS
 ========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   header {
-    padding: 15px;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  header h1 {
-    font-size: 24px;
-  }
-
-  nav {
-    justify-content: center;
-  }
-
-  nav button {
-    padding: 9px 14px;
-    font-size: 14px;
-  }
-
-  .home h2 {
-    font-size: 30px;
+    padding: 18px 20px;
   }
 
   .products-page,
   .cart-page {
-    padding: 20px 15px;
+    padding: 25px 20px;
+  }
+
+  .products-grid,
+  .products {
+    gap: 18px;
+  }
+
+  .cart {
+    padding: 20px;
+  }
+}
+
+/* =========================
+   MOBILE PHONES
+========================= */
+
+@media (max-width: 600px) {
+  header {
+    padding: 15px 12px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  header h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: center;
+    gap: 7px;
+  }
+
+  nav button {
+    flex: 1 1 auto;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .home {
+    padding: 38px 18px;
+    min-height: 60vh;
+  }
+
+  .home h2 {
+    font-size: 29px;
+    line-height: 1.25;
+  }
+
+  .home p {
+    font-size: 16px;
+  }
+
+  .products-page,
+  .cart-page {
+    padding: 20px 12px;
+  }
+
+  .products-page h2,
+  .cart-page h2 {
+    font-size: 24px;
+  }
+
+  .products-grid,
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .product-card {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .product-card img {
+    height: 145px;
+  }
+
+  .product-card h3 {
+    font-size: 15px;
+  }
+
+  .product-card p {
+    font-size: 14px;
+  }
+
+  .product-card button {
+    width: 100%;
+    padding: 10px 5px;
+    font-size: 13px;
+  }
+
+  .category-buttons {
+    gap: 7px;
+  }
+
+  .category-buttons button {
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+
+  .search-input {
+    margin-bottom: 18px;
+  }
+
+  .cart {
+    padding: 14px;
+    margin-top: 20px;
   }
 
   .cart-item {
     flex-direction: column;
+    align-items: stretch;
     text-align: center;
+    gap: 10px;
+    padding: 13px;
+  }
+
+  .cart-item img {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    object-fit: contain;
   }
 
   .quantity-controls {
@@ -406,6 +551,56 @@ footer {
   }
 
   .checkout {
-    margin: 20px 15px;
+    width: 100%;
+    margin: 20px 0;
+    padding: 17px;
+  }
+
+  .checkout button {
+    margin-right: 5px;
+  }
+
+  footer {
+    padding: 18px 12px;
+  }
+}
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-width: 360px) {
+  header h1 {
+    font-size: 21px;
+  }
+
+  nav {
+    gap: 5px;
+  }
+
+  nav button {
+    padding: 9px 7px;
+    font-size: 12px;
+  }
+
+  .products-grid,
+  .products {
+    gap: 8px;
+  }
+
+  .product-card {
+    padding: 8px;
+  }
+
+  .product-card img {
+    height: 115px;
+  }
+
+  .product-card h3 {
+    font-size: 14px;
+  }
+
+  .product-card button {
+    font-size: 12px;
   }
 }
